@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+	<link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.4/material.indigo-pink.min.css"/>
+	<script src="https://storage.googleapis.com/code.getmdl.io/1.0.4/material.min.js"></script>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+</head>
+
+<body>
+	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+		<header class="mdl-layout__header" style="margin-left: 330px; width: calc(100% - 330px);">
+			<div class="mdl-layout__header-row">
+				<!-- Title -->
+				<span class="mdl-layout-title">Chatting</span>
+				<!-- Add spacer, to align navigation to the right -->
+				<div class="mdl-layout-spacer"></div>
+				<!-- Navigation. We hide it in small screens. -->
+				<nav class="mdl-navigation mdl-layout--large-screen-only">
+					<div class="mdl-navigation__link" style="text-align: center; line-height: normal;">
+						<i class="material-icons">event</i>
+						<div>Calendar</div>
+					</div>
+
+					<div class="mdl-navigation__link" style="text-align: center; line-height: normal;">
+						<i class="material-icons">share</i>
+						<div>Share</div>
+					</div>
+
+					<div class="mdl-navigation__link" style="text-align: center; line-height: normal;">
+						<i class="material-icons">mode_edit</i>
+						<div>Style</div>
+					</div>
+
+					<div class="mdl-navigation__link" style="text-align: center; line-height: normal;">
+						<i class="material-icons">videocam</i>
+						<div>Videocam</div>
+					</div>
+
+					<div class="mdl-navigation__link" style="text-align: center; line-height: normal;">
+						<i class="material-icons">tag_faces</i>
+						<div>Emoji</div>
+					</div>
+				</nav>
+			</div>
+		</header>
+
+
+		<div class="mdl-layout__drawer" style="width: 330px;">
+			<div class="demo-card-wide mdl-card mdl-shadow--2dp">
+				<div class="mdl-card__title" style="padding-bottom: 0px;">
+					<i class="material-icons" style="font-size: 8em; padding-left: 85px; color: lightblue;">perm_identity</i>
+				</div>
+
+				<div class="mdl-card__supporting-text" style="padding-top: 0px; text-align: center;">
+					User name
+				</div>				
+			</div>
+
+			<button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored" style="position: absolute; top: 171px; z-index: 2; right: 20px;">
+  				<i class="material-icons">add</i>
+			</button>
+
+			<nav class="mdl-navigation">
+				<a class="mdl-navigation__link" href="">Friend 1</a>
+				<a class="mdl-navigation__link" href="">Friend 2</a>
+				<a class="mdl-navigation__link" href="">Friend 3</a>
+			</nav>
+		</div>
+
+		<main class="mdl-layout__content" style="margin-left: 330px;">
+			<div class="page-content"><!-- Your content goes here -->
+				<div></div>
+
+				<form action="#" style="position: absolute; bottom: 0px; left: 338px; width: 100%;">
+				  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width: calc(100% - 450px);">
+				    <input class="mdl-textfield__input" type="text" id="sample3" />
+				    <label class="mdl-textfield__label" for="sample3">Texting...</label>
+
+				    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" style="right: -80px;">Send</button>
+				  </div>
+				</form>
+			</div>
+		</main>
+	</div>
+</body>
+</html>
