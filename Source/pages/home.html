@@ -1,0 +1,89 @@
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="#home">
+            <i class="glyphicon glyphicon-home"></i> Welcome Cuong
+        </a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <div class="col-md-5 pull-right">
+            <div class="navbar-form" role="search">
+                <div class="input-group" style="width: 100%;">
+                    <input type="text" class="form-control"
+                           placeholder="Food name"
+                           ng-model="foodSelected"
+                           typeahead="food as food.name for food in foodBank | filter:{name:$viewValue}"/>
+
+                    <div class="input-group-btn">
+                        <button class="btn btn-info" type="button" ng-click="nutritionInfo()"><i class="glyphicon glyphicon-search"></i></button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<script type="text/ng-template" id="nutrition_info.html">
+    <div id="cardHeader" style="color: white; position: relative; width: 100%; background-position: center; background-repeat: no-repeat;">
+        <div>
+            <img id="imageHeader" style="visibility:hidden"/>
+        </div>
+
+        <div style="position: absolute; bottom: 0; padding-left: 5px;">
+            <h2 style="margin-bottom: 2px;">{{selectedFoodName}}</h2>
+            <div>{{foodGroup}}</div>
+        </div>
+    </div>
+
+    <div style="width: 212px; margin: 0 auto;">
+        <table class="table table-hover">
+            <caption class="text-center"><strong>{{nutritionCaption}}</strong></caption>
+
+            <tr ng-repeat="nutrient in nutrients | filter: {unit: 'kcal'}">
+                <td><strong>Calories</strong></td>
+                <td>{{nutrient.value}}{{nutrient.unit}}</td>
+            </tr>
+
+            <tr ng-repeat="nutrient in nutrients | filter: {name: '(fat)'}">
+                <td><strong>Total Fat</strong></td>
+                <td>{{nutrient.value}}{{nutrient.unit}}</td>
+            </tr>
+
+            <tr ng-repeat="nutrient in nutrients | filter: {name: 'Sodium'}">
+                <td><strong>Sodium</strong></td>
+                <td>{{nutrient.value}}{{nutrient.unit}}</td>
+            </tr>
+
+            <tr ng-repeat="nutrient in nutrients | filter: {name: 'Protein'}">
+                <td><strong>Protein</strong></td>
+                <td>{{nutrient.value}}{{nutrient.unit}}</td>
+            </tr>
+
+            <tr ng-repeat="nutrient in nutrients | filter: {name: 'Carbohydrate'}">
+                <td><strong>Total Carbohydrate</strong></td>
+                <td>{{nutrient.value}}{{nutrient.unit}}</td>
+            </tr>
+
+            <tr ng-repeat="nutrient in nutrients | filter: {name: 'Fiber'}">
+                <td><strong>Fiber</strong></td>
+                <td>{{nutrient.value}}{{nutrient.unit}}</td>
+            </tr>
+
+            <tr ng-repeat="nutrient in nutrients | filter: {name: 'Sugars, total'}">
+                <td><strong>Total Sugars</strong></td>
+                <td>{{nutrient.value}}{{nutrient.unit}}</td>
+            </tr>
+
+            <tr ng-repeat="nutrient in nutrients | filter: {name: 'Cholesterol'}">
+                <td><strong>Cholesterol</strong></td>
+                <td>{{nutrient.value}}{{nutrient.unit}}</td>
+            </tr>
+        </table>
+    </div>
+</script>
+
+
+<div class="row" id="nutritionCard">
+    <div ng-include="'nutrition_info.html'"></div>
+</div>
