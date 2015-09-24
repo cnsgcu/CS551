@@ -109,8 +109,6 @@
     chatApp.controller('registerController', function($scope, $location) {
         $scope.userInfo = {};
 
-        localStorage.setItem('users', '[]');
-
         $scope.addUser = function() {
             var users = JSON.parse(localStorage.getItem('users'));
 
