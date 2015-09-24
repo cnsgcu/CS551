@@ -112,6 +112,10 @@
         $scope.addUser = function() {
             var users = JSON.parse(localStorage.getItem('users'));
 
+            if (!users) {
+                users = [];
+            }
+
             users.push($scope.userInfo);
             localStorage.setItem('users', JSON.stringify(users));
             console.log(localStorage.getItem('users'));
