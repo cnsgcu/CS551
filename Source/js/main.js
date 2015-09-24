@@ -101,6 +101,7 @@
                     );
 
                     $('#nutritionCard').css('border', '1px solid #ddd');
+                    $('#cardTitle').css('background-color', 'rgba(152, 152, 152, 0.5)');
                 });
         };
 
