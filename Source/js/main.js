@@ -93,7 +93,7 @@
                             format: "json"
                         },
                         function(data) {
-                            var imgIdx = 3;
+                            var imgIdx = 5;
 
                             $('#cardHeader').css('background-image', "url('" + data.items[imgIdx].media.m + "')");
                             $('#imageHeader').attr('src', data.items[imgIdx].media.m);
