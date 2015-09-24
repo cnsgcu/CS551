@@ -10,7 +10,7 @@
                 controller  : 'loginController'
             })
 
-            .when('/home', {
+            .when('/home/:user_name', {
                 templateUrl : 'pages/home.html',
                 controller  : 'homeController'
             })
@@ -34,24 +34,28 @@
 
                     if (email == $scope.loginInfo.email
                         && password == $scope.loginInfo.password) {
-                        $location.path('/home');
+                        $location.path('/home/' + users[i].first_name);
                     }
                 }
             }
         }
     });
 
-    chatApp.controller('homeController', function($scope, $http) {
-        $.getJSON(
-            'https://en.wikipedia.org/w/api.php?action=query&&rawcontinue=&format=json&callback=?',
-            {
-                titles: 'Cheese',
-                prop: 'images'
-            },
-            function(data) {
-                console.log(data);
-            }
-        );
+    chatApp.controller('homeController', function($scope, $http, $routeParams) {
+        $scope.user_name = $routeParams.user_name;
+
+        // Experimental: Wikipedia API
+        //
+        //$.getJSON(
+        //    'https://en.wikipedia.org/w/api.php?action=query&&rawcontinue=&format=json&callback=?',
+        //    {
+        //        titles: 'Cheese',
+        //        prop: 'images'
+        //    },
+        //    function(data) {
+        //        console.log(data);
+        //    }
+        //);
 
         $scope.foodBank = [
             {name: 'Butter, salted', id:'01001'},
@@ -89,7 +93,7 @@
                             format: "json"
                         },
                         function(data) {
-                            var imgIdx = 1;
+                            var imgIdx = 3;
 
                             $('#cardHeader').css('background-image', "url('" + data.items[imgIdx].media.m + "')");
                             $('#imageHeader').attr('src', data.items[imgIdx].media.m);
