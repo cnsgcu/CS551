@@ -1,0 +1,85 @@
+<ion-view view-title="Sign Up">
+  <ion-content class="padding">
+    <form novalidate="novalidate" on-valid-submit="doLogin()">
+      <div class="list card">
+        <div class="list">
+          <div class="item row">
+            <div style="height: 90px; width: 100px; font-size: 3em; margin: 0 auto; text-align: center;">
+              <div style="width: 52px; height: 52px; border-radius: 48px; border: 1px solid #c5c5c5; margin: 0 auto;" ng-click="takePicture()">
+                <i class="icon ion-ios-camera-outline placeholder-icon"></i>              
+              </div>
+              
+              <div style="line-height: 1px">
+                <label>Selfie</label>
+              </div>
+            </div>
+          </div>
+  
+          <div class="item row">
+            <div class="col">
+              <label class="item-input validated">
+                <i class="icon ion-person placeholder-icon"></i>
+                <input id="name" type="text" placeholder="User Name" ng-model="user.name" required="required" >
+                <i class="icon ion-alert-circled error"></i>
+              </label>
+            </div>
+          </div>
+          
+          <div class="item row">
+            <div class="col col-80">
+              <label class="item-input validated">
+                <i class="icon ion-calendar placeholder-icon"></i>
+                <input id="dob" type="date" ng-model="user.dob" required="required" >
+                <i class="icon ion-alert-circled error"></i>
+              </label>
+            </div>
+            
+            <div class="col">
+                <label class="item item-input item-select">
+                  <div class="input-label">&nbsp;</div>
+                  
+                  <select>
+                    <option disabled selected>Gender</option>
+                    <option>Female</option>
+                    <option>Male</option>
+                  </select>
+                </label>
+            </div>
+          </div>
+          
+          <div class="item row">
+            <div class="col">
+              <label class="item-input validated">
+                <i class="icon ion-email placeholder-icon"></i>
+                <input id="email" type="email" placeholder="Email" ng-model="user.email" required="required">
+                <i class="icon ion-alert-circled error"></i>
+              </label>
+            </div>
+          </div>
+          
+          <div class="item row">
+            <div class="col">
+              <label class="item-input validated">
+                <i class="icon ion-locked placeholder-icon"></i>
+                <input id="password" type="password" placeholder="Password" ng-model="user.password" required="required" >
+                <i class="icon ion-alert-circled error"></i>
+              </label>
+            </div>
+          </div>
+          
+          <div class="item row">
+            <div class="col">
+              <label class="item-input validated">
+                <i class="icon ion-locked placeholder-icon"></i>
+                <input id="repassword" type="password" placeholder="Retype password" ng-model="user.repassword" required="required" >
+                <i class="icon ion-alert-circled error"></i>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <button type="submit" class="button button-block button-positive">Submit</button>
+    </form>
+  </ion-content>
+</ion-view>
