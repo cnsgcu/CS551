@@ -1,4 +1,4 @@
-<ion-view view-title="Sign Up">
+<ion-view view-title="Edit Profile">
   <ion-content class="padding">
     <form name="loginform" novalidate ng-submit="loginform.$valid && doSubmit()">
       <div class="list card">
@@ -26,24 +26,12 @@
           </div>
           
           <div class="item row">
-            <div class="col col-80">
+            <div class="col">
               <label class="item-input validated">
                 <i class="icon ion-calendar placeholder-icon"></i>
-                <input id="dob" type="date" ng-model="user.dob" required >
+                <input id="dob" type="date" data-date-format="mm/dd/yyyy" ng-model="user.dob" required >
                 <i class="icon ion-alert-circled error"></i>
               </label>
-            </div>
-            
-            <div class="col">
-                <label class="item item-input item-select">
-                  <div class="input-label">&nbsp;</div>
-                  
-                  <select>
-                    <option disabled selected>Gender</option>
-                    <option>Male</option>
-                    <option>Female</option>
-                  </select>
-                </label>
             </div>
           </div>
           
@@ -79,7 +67,8 @@
         </div>
       </div>
       
-      <button type="submit" class="button button-block button-positive">Submit</button>
+      <button class="button button button-positive" ng-click="update()">Save</button>
+      <button class="button button button-assertive" ng-click="delete()">Delete</button>
     </form>
   </ion-content>
 </ion-view>

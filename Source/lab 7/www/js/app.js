@@ -35,6 +35,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     url: '/',
     templateUrl: 'templates/signup.html',
     controller: 'DashCtrl'
+  })
+  .state('edit', {
+    url: '/edit',
+    templateUrl: 'templates/edit.html',
+    controller: 'EditCtrl'
   });
 
   // if none of the above states are matched, use this as the fallback
