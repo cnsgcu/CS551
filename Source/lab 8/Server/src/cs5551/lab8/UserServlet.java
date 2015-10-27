@@ -34,7 +34,13 @@ public class UserServlet extends HttpServlet
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException
 	{
-		response.getWriter().append(users.find().into(new ArrayList<Document>()).toString());			
+		final String email = request.getPathInfo().replace("/", "");
+
+		response.addHeader("Access-Control-Allow-Origin", "*");
+		response.addHeader("Access-Control-Allow-Methods", "GET");
+		response.addHeader("Access-Control-Allow-Headers", "Content-Type");
+		response.addHeader("Access-Control-Max-Age", "86400");
+		response.getWriter().append(users.find(new Document("email", email)).first().toJson());			
 	}
 	
 	/**
@@ -55,6 +61,10 @@ public class UserServlet extends HttpServlet
 		
 		users.insertOne(user);
 
+		response.addHeader("Access-Control-Allow-Origin", "*");
+		response.addHeader("Access-Control-Allow-Methods", "POST");
+		response.addHeader("Access-Control-Allow-Headers", "Content-Type");
+		response.addHeader("Access-Control-Max-Age", "86400");
 		response.getWriter().write(user.toJson());
 	}
 	
@@ -81,6 +91,10 @@ public class UserServlet extends HttpServlet
 	        new Document("$set", user)
         );
 		
+		response.addHeader("Access-Control-Allow-Origin", "*");
+		response.addHeader("Access-Control-Allow-Methods", "PUT");
+		response.addHeader("Access-Control-Allow-Headers", "Content-Type");
+		response.addHeader("Access-Control-Max-Age", "86400");
 		response.getWriter().write(user.toJson());
 	}
 	
@@ -92,13 +106,17 @@ public class UserServlet extends HttpServlet
 		final String oid = request.getPathInfo().replace("/", "");
 		final DeleteResult result = users.deleteOne(new Document("_id", new ObjectId(oid)));
 		
+		response.addHeader("Access-Control-Allow-Origin", "*");
+		response.addHeader("Access-Control-Allow-Methods", "DELETE");
+		response.addHeader("Access-Control-Allow-Headers", "Content-Type");
+		response.addHeader("Access-Control-Max-Age", "86400");
 		response.getWriter().write(result.toString());
 	}
 	
 	protected void doOptions(HttpServletRequest request, HttpServletResponse response)
 	{
 		response.addHeader("Access-Control-Allow-Origin", "*");
-		response.addHeader("Access-Control-Allow-Methods", "POST, PUT, DELETE");
+		response.addHeader("Access-Control-Allow-Methods", "POST, PUT, DELETE, GET");
 		response.addHeader("Access-Control-Allow-Headers", "Content-Type");
 		response.addHeader("Access-Control-Max-Age", "86400");
 	}
