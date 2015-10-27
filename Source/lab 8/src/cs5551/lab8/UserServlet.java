@@ -33,7 +33,7 @@ public class UserServlet extends HttpServlet
 	/**
 	 * curl test at port 8080: curl -X GET http://localhost:8080/Spider/users
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException
 	{
 		response.getWriter().append(users.find().into(new ArrayList<Document>()).toString());			
 	}
