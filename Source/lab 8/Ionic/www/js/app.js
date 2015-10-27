@@ -37,7 +37,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     controller: 'DashCtrl'
   })
   .state('edit', {
-    url: '/edit',
+    url: '/edit/:email',
     templateUrl: 'templates/edit.html',
     controller: 'EditCtrl'
   });

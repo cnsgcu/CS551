@@ -39,15 +39,15 @@ angular.module('starter.controllers', [])
         data: JSON.stringify(submitUser),
         contentType: 'application/json'
       }).success(function(data) {
-        $location.path("/edit");
+        $location.path("/edit/" + submitUser['email']);
       });
     };
   })
   
-  .controller('EditCtrl', function($scope, $http, $location, $filter, Camera) {
+  .controller('EditCtrl', function($scope, $http, $location, $filter, $stateParams, Camera) {
     $http({
       method: 'GET',
-      url: 'http://localhost:9477/Spider/users/csc823@gmail.com',
+      url: 'http://localhost:9477/Spider/users/' + $stateParams.email,
       contentType: 'application/json'
     }).success(function(data) {
       console.log(data);
