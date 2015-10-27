@@ -46,7 +46,10 @@ public class UserServlet extends HttpServlet
 		final StringBuilder builder = new StringBuilder();
 		final BufferedReader reader = request.getReader();
 		
-		reader.lines().forEach(builder::append);
+		String line;
+		while ((line = reader.readLine()) != null) {
+			builder.append(line);
+		}
 		
 		final JSONObject params = (JSONObject) JSON.parse(builder.toString());
 		final Document user = new Document(params);
@@ -63,7 +66,11 @@ public class UserServlet extends HttpServlet
 	{
 		final StringBuilder builder = new StringBuilder();
 		final BufferedReader reader = request.getReader();
-		reader.lines().forEach(builder::append);
+		
+		String line;
+		while ((line = reader.readLine()) != null) {
+			builder.append(line);
+		}
 		
 		final JSONObject params = (JSONObject) JSON.parse(builder.toString());
 		final Document user = new Document(params);
