@@ -29,7 +29,7 @@ public class UserServlet extends HttpServlet
 	static private final MongoCollection<Document> users = db.getCollection("users");
 	
 	/**
-	 * curl test at port 8080: curl -X GET http://localhost:8080/Spider/users
+	 * curl test at port 8080: curl -X GET http://localhost:8080/Spider/users/cloud@sky.earth
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException
 	{
