@@ -104,12 +104,12 @@ public class UserServlet extends HttpServlet
 	{
 		final String oid = request.getPathInfo().replace("/", "");
 		final DeleteResult result = users.deleteOne(new Document("_id", new ObjectId(oid)));
-		
+				
 		response.addHeader("Access-Control-Allow-Origin", "*");
 		response.addHeader("Access-Control-Allow-Methods", "DELETE");
 		response.addHeader("Access-Control-Allow-Headers", "Content-Type");
 		response.addHeader("Access-Control-Max-Age", "86400");
-		response.getWriter().write(result.toString());
+		response.getWriter().write("{\"delete_count\":"+ result.getDeletedCount() + "}");
 	}
 	
 	protected void doOptions(HttpServletRequest request, HttpServletResponse response)
