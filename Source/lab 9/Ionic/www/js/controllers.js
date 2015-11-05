@@ -10,6 +10,7 @@ function extend(destination, source) {
   return destination; 
 }
 
+// Request factory for Factory pattern
 function BaseRequestFactory() {
   if (!(this instanceof BaseRequestFactory)) { 
     return new BaseRequestFactory();
@@ -18,6 +19,7 @@ function BaseRequestFactory() {
   this.tmp = null;
 };
 
+// Encapsulate common methods of request factory
 BaseRequestFactory.prototype = {
   make: function(reqMethod) {
     this.tmp = {};
@@ -33,6 +35,7 @@ BaseRequestFactory.prototype = {
   }
 }
 
+// Mixins for mixin pattern
 var DataRequestMixin = {
   carryJsonData: function(reqData) {
     var request = this.tmp;
@@ -54,6 +57,7 @@ var NoDataRequestMixin = {
   }
 }
 
+// Singleton pattern
 var RequestFactory = (function() {
   extend(BaseRequestFactory.prototype, DataRequestMixin);
   extend(BaseRequestFactory.prototype, NoDataRequestMixin)
